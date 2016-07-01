@@ -15,6 +15,7 @@ if(ANDROID)
 	    DEFINE_SYMBOL DSO_EXPORTS
 	    CLEAN_DIRECT_OUTPUT 1 					# allow creating static and shared libs without conflicts
 	    OUTPUT_NAME "${PROJECT_NAME}${PROJECT_DLLVERSION}" 	# avoid conflicts between library and binary target names
+    )
 else()
     SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES 				# create *nix style library versions + symbolic links
 	    DEFINE_SYMBOL DSO_EXPORTS
@@ -22,9 +23,8 @@ else()
 	    SOVERSION ${PROJECT_SOVERSION}
 	    CLEAN_DIRECT_OUTPUT 1 					# allow creating static and shared libs without conflicts
 	    OUTPUT_NAME "${PROJECT_NAME}${PROJECT_DLLVERSION}" 	# avoid conflicts between library and binary target names
+    )
 endif()
-
-)
 
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${REQUIRED_LIBRARIES})
 
