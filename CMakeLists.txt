@@ -64,6 +64,10 @@ IF(EXISTS ${GLUT_PATH})
     SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} ${GLUT_PATH}/lib)
 ENDIF()
 
+if(ANDROID)
+    include_directories("${CMAKE_INSTALL_PREFIX}/include/")
+endif()
+
 ##LOOK FOR OPENGL AND GLUT
 #FIND OPENGL LIBRARY. In Android, there is no need since it is included
 IF(NOT ANDROID_CREATION)
